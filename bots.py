@@ -34,7 +34,7 @@ async def Add_NUMBER(event ,phone_number):
         uu.close()
         uui = open('sessions.txt', 'a')
         uui.write(phone_number + '\n')
-    uu.close()
+        uui.close()
     return "تم اضافة الرقم بنجاح ✅"
 
 
