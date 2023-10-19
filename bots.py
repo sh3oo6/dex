@@ -27,11 +27,13 @@ async def Add_NUMBER(event ,phone_number):
 
                 await iqthon.sign_in(phone_number, password=password.text)
     await iqthon.disconnect()
-    uu = open('sessions.txt', 'a')
+    uu = open('sessions.txt', 'r')
     if phone_number in uu.read():
         os.popen(f'rm -r {phone_number}')
     else:
-        uu.write(phone_number + '\n')
+        uu.close()
+        uui = open('sessions.txt', 'a')
+        uui.write(phone_number + '\n')
     uu.close()
     return "تم اضافة الرقم بنجاح ✅"
 
@@ -52,7 +54,7 @@ async def Callbacks(event):
 @bot.on(events.CallbackQuery(data="People"))
 async def Callbacsks(event):
     sessions = open('sessions.txt', 'r')
-    await event.reply(sessions.read())
+    await bot.send_message(sessions.read())
     sessions.close()
 
 @bot.on(events.CallbackQuery(data="add_number"))
