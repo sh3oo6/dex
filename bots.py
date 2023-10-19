@@ -3,7 +3,7 @@ from telethon.sync import TelegramClient, events
 import os , asyncio
 api_id = 2192036
 api_hash = '3b86a67fc4e14bd9dcfc2f593e75c841'
-bot_token = '6020359840:AAFLaZSOPD5iqZ9RJOlRLJSXhLIAAmx4x-U'
+bot_token = '6622166945:AAGYoRMijhEgfaLcq1o8cRAcXUj3Fs6obRw'
 bot = TelegramClient('bot73', api_id, api_hash).start(bot_token=bot_token)
 async def Add_NUMBER(event ,phone_number):
     bos = f'/root/session/{phone_number}'
