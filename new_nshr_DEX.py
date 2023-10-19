@@ -6,7 +6,7 @@ import re, requests, os
 try:
     client = open('/root/plus/prift.txt', 'r').read().replace('\n', '')
     client_in_vps = f'/root/session/{client}'
-    DEX = TelegramClient('', 22160733, 'c95e81b40eba3404ac130f4a9f235e4c')
+    DEX = TelegramClient(client_in_vps, 22160733, 'c95e81b40eba3404ac130f4a9f235e4c')
     DEX.connect()
 except Exception as k:
     print(k)
