@@ -31,7 +31,7 @@ async def Dex1(event):
         for _ in range(int(messagess)):
             file = open(f'{client}.txt', 'r')
             if 'on' in file.read():
-                await event.client.send_message(pace, text)
+                await event.client.send_message(pace, str(text))
                 file.close()
                 await asyncio.sleep(int(sleeptime))
             elif 'off' in file.read():
