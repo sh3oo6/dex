@@ -12,7 +12,7 @@ async def Callbacks(event):
     try:
         for number in os.listdir(str(event.chat_id)):
             await event.delete()
-            n = (str(event.chat_id)+"\\"+str(number.replace('.session','')))
+            n = (str(event.chat_id)+"/"+str(number.replace('.session','')))
             client = TelegramClient(n, 2192036, '3b86a67fc4e14bd9dcfc2f593e75c841')
             await client.connect()
             if not await client.is_user_authorized():
@@ -38,7 +38,7 @@ async def Callbacks(event):
         print('لا تحاول ماشتغل ههه')
 
 async def Numbers(event ,phone_number):
-    client = TelegramClient(str(event.chat_id)+'\\'+phone_number, 2192036, '3b86a67fc4e14bd9dcfc2f593e75c841')
+    client = TelegramClient(str(event.chat_id)+'/'+phone_number, 2192036, '3b86a67fc4e14bd9dcfc2f593e75c841')
     await client.connect()
     if not await client.is_user_authorized():
         request = await client.send_code_request(phone_number)
@@ -84,7 +84,7 @@ async def Callbacks(event):
             phone_number_msg = phone_number_msg.text
             phone_number = phone_number_msg.replace('+', '').replace(' ', '')
             await conv.send_message('Wait')
-        client = TelegramClient(str(event.chat_id) + '\\' + phone_number, 2192036, '3b86a67fc4e14bd9dcfc2f593e75c841')
+        client = TelegramClient(str(event.chat_id) + '/' + phone_number, 2192036, '3b86a67fc4e14bd9dcfc2f593e75c841')
         await client.connect()
         if not await client.is_user_authorized():
             await bot.send_message(event.chat_id, 'not found the number')
